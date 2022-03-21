@@ -14,11 +14,3 @@ jobs:
           uses: joonvena/robotframework-docker-action@v0.1
           env:
             BROWSER: chrome
-            robot_tests_dir: ${{ github.workspace }}/tests
-            robot_reports_dir: ${{ github.workspace }}/reports
-        - name: Upload test results
-          uses: actions/upload-artifact@v1
-          if: always()
-          with:
-            name: reports
-            path: ${{ github.workspace }}/reports
