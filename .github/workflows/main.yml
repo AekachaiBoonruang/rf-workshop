@@ -14,3 +14,4 @@ jobs:
           uses: joonvena/robotframework-docker-action@v0.1
           env:
             BROWSER: chrome
+            robot_tests_dir: ${{ github.workspace }}/tests
