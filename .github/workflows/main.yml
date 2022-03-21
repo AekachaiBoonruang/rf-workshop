@@ -9,9 +9,14 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: permissions
+          run:
+            chmod 777 ${{ github.workspace }}/reports
         - uses: actions/checkout@v2
         - name: Execute tests
           uses: joonvena/robotframework-docker-action@v0.1
           env:
             BROWSER: chrome
-            robot_tests_dir: ${{ github.workspace }}/tests
+            robot_tests_dir: ${{ github.workspace }}/
