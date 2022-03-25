@@ -6,6 +6,7 @@ Test Teardown  Close Browser
 *** Variables ***
 ${HOMEPAGE}  https://www.youtube.com/
 ${BROWSER}  chrome
+${URL_VIDEO}  https://www.youtube.com/watch?v=5GGnWsHmpd8
 
 *** Keywords ***
 Visit Shopee Website
@@ -20,13 +21,14 @@ Click Search Button
 Click on first video
   Click Element  xpath://*[@id="contents"]/ytd-video-renderer[1]
 
+Verify url and text
+  Location Should Be  ${URL_VIDEO}
+  Wait Until Page Contains  ชุดโกโกวา - Tongtang Family TV [Official MV]
 *** Test Cases ***
 
 Search youtube
-  Sleep  2s
+  Set Selenium Speed  1s
   Search video by song name
-  Sleep  2s
   Click Search Button
-  Sleep  2s
   Click on first video
-  Sleep  10s
+  Verify url and text
